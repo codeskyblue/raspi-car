@@ -12,26 +12,31 @@ def main():
     term = Terminal()
 
     with term.cbreak():
-        print("Press any key to continue")
+        print("Press any key to continue, z to quit")
         while True:
             inp = term.inkey(timeout=.5)
             print("Input:", inp)
-            handle_input(inp)
+            handle_input(r, inp)
 
 
 def handle_input(r, _input: str):
     inp = _input.lower()
-    if inp == "q":
+    if inp == "z":
         sys.exit(0)
     elif inp == "w":
-        r.value = (1, 1)
-    elif inp == "a":
-        r.value = (0, 1)
+        r.forward()
     elif inp == "s":
-        r.value = (-1, -1)
+        r.backward()
+    elif inp == "q":
+        r.value = (0.3, 1)
+    elif inp == "e":
+        r.value = (1, 0.3)
+    elif inp == "a":
+        r.left()
+    elif inp == "d":
+        r.right()
     else:
-        r.value = (0, 0)
-    time.sleep(.2)
+        r.stop()
         
 
 if __name__ == "__main__":

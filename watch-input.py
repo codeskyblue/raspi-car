@@ -28,9 +28,9 @@ def handle_input(r, _input: str):
     elif inp == "s":
         r.backward()
     elif inp == "q":
-        r.value = (0.3, 1)
+        r.value = (0.15, 1)
     elif inp == "e":
-        r.value = (1, 0.3)
+        r.value = (1, 0.15)
     elif inp == "a":
         r.left()
     elif inp == "d":
